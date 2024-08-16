@@ -37,11 +37,9 @@ android {
 
     configure<PublishingExtension> {
         publications.create<MavenPublication>("pr") {
-
-            groupId = "com.xianban.progress"
+            groupId = "com.xianban.pr"
             artifactId = "pr"
             version = "1.0.0"
-            artifact("../utils/build/outputs/aar/release.aar")
         }
     }
 }
