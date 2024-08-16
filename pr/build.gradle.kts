@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
+
+
 android {
     namespace = "com.xianban.pr"
     compileSdk = 34
@@ -33,6 +35,7 @@ android {
 }
 
 dependencies {
+    implementation ("com.github.Xianbana:XianProgress:1.0.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
