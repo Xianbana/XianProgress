@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    id ("maven-publish")
 }
 
 
@@ -32,7 +34,21 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    configure<PublishingExtension> {
+        publications.create<MavenPublication>("pr") {
+
+            groupId = "com.xianban.progress"
+            artifactId = "pr"
+            version = "1.0.0"
+            artifact("../utils/build/outputs/aar/release.aar")
+
+
+        }
+    }
 }
+
+
 
 dependencies {
     implementation ("com.github.Xianbana:XianProgress:1.0.0")
@@ -44,3 +60,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+
+
+
