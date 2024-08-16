@@ -42,8 +42,6 @@ android {
             artifactId = "pr"
             version = "1.0.0"
             artifact("../utils/build/outputs/aar/release.aar")
-
-
         }
     }
 }
