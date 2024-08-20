@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
+
 }
 
 android {
@@ -33,7 +35,27 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
 }
+
+publishing {
+    publications {
+        create("release", MavenPublication::class) {
+            groupId = "com.xianban.pr"
+            artifactId = "progress"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
+
+
+
 
 dependencies {
     implementation(libs.androidx.core.ktx)
